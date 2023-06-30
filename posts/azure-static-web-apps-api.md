@@ -1,10 +1,10 @@
 ---
 title: "Azure Static Web Apps Api"
 date: 2023-04-23T20:37:20+08:00
-draft: true
-summary: Azure Static Web App 是一個可以快速建立靜態網站的服務，但是它也可以用來建立後端 API，這篇文章會介紹如何建立後端 API，使用 Azure Functions 來處理 API 請求。
+draft: false
+summary: Azure Static Web App 是一個可以快速建立靜態網站的服務，但是它也可以用來建立後端 API。
 ---
-> Azure Static Web Apps 是一個提供建置和部屬網頁應用程式的服務，可以方便的與 Github Action 整合，以及使用 Azure Functions 作為後端 API。這邊記錄一下如何使用 Azure Function 作為後端 API 。
+> Azure Static Web Apps 是一個提供建置和部屬網頁應用程式的服務，可以方便的與 Github Action 整合，以及使用 Azure Functions 作為後端 API。這邊記錄一下如何使用 Azure Function 作為後端 API 讓前端靜態網頁呼叫。
 ### 簡易說明
 Azure Static Web Apps 服務的免費方案可以提供建置 API 隨著前端一起部屬，如果是標準方案的話，可以使用既有的 Azure Function 作為後端 API。
 
@@ -16,7 +16,7 @@ Azure Static Web Apps 服務的免費方案可以提供建置 API 隨著前端�
 - 已經建立好的 Static Web App 專案
 
 ### 前端
-這邊簡單用一個 html 檔案來當作前端，放在 `src` 資料夾內，內容是一個簡單的登入表單，以及顯示結果的地方：
+這邊簡單用一個 html 檔案，內容是一個簡單的登入表單，以及顯示結果的地方：
 ```html
 <form class="d-flex flex-column align-items-center justify-content-center" style="height: 50vh">
     <label for="name">Name</label>
@@ -101,13 +101,9 @@ module.exports = function (context, req) {
 };
 ```
 
-> 這邊的 `CORRECT_PASSWORD` 是一個環境變數，可以在 Static Web Apps 的設定中設定：
+> 這邊的 `CORRECT_PASSWORD` 是一個環境變數，可以從 Azure Portal 的 Static Web Apps 頁面中設定。
 > 
-> ![static-web-apps-set-configuration](https://abintsengblog.blob.core.windows.net/images/static-web-apps/static-web-apps-set-configuration_s.png)
-> 
-> 或是在 `local.settings.json` 檔案中設定。
-> 
-> ![static-web-apps-set-configuration-local](https://abintsengblog.blob.core.windows.net/images/static-web-apps/static-web-apps-set-configuration-local_s.png)
+> 如果是本地端開發時也可以在 `local.settings.json` 檔案中設定。
 
 ### 修改前端程式碼
 整合進 Static Web Apps 的 Azure Function 在免費方案中 URL 是固定以 `/api` 開頭，所以要修改前端程式碼來呼叫 Azure Function：
@@ -154,7 +150,7 @@ $ swa start
 > 保哥也有寫過詳細的說明：[連結](https://blog.miniasp.com/post/2022/10/22/Deploy-Website-using-Azure-Static-Web-Apps-CLI)
 
 
-> 我在使用 Static Web Apps CLI 的時候有遇到執行 `swa start` 時 CLI 無法正確連結到 Azure Function 的問題，發生的原因不明，有 [issue](https://github.com/Azure/static-web-apps-cli/issues/335) 是類似的情況，改 node 版本後就可以正常執行。我是使用 devcontainers 來開發解決這個問題。
+> 在使用 Static Web Apps CLI 的時候有遇到執行 `swa start` 時 CLI 無法正確連結到 Azure Function 的問題，發生的原因不明，有 [issue](https://github.com/Azure/static-web-apps-cli/issues/335) 是類似的情況，改 node 版本後就可以正常執行。使用 devcontainers 也可以解決這個問題。
 
 ### 部屬
 
@@ -166,9 +162,8 @@ api_location: "api" # Api source code path - optional
 
 如果先前建立專案的步驟正確的話，就可以 push 到 GitHub 上確認部屬是否成功了。
 
-![result](https://abintsengblog.blob.core.windows.net/images/static-web-apps/static-web-apps-sample-result_s.png)
 
-> 範例專案：[連結](https://github.com/AaaBin/static-web-apps-sample)
+> 專案：[連結](https://github.com/AaaBin/static-web-apps-sample)
 
 ### 參考資料
 - [What is Azure Static Web Apps?](https://learn.microsoft.com/en-us/azure/static-web-apps/overview)

@@ -2,9 +2,9 @@
 title: "Postgresql Benchmark"
 date: 2023-04-23T20:37:43+08:00
 draft: false
-summary: 要針對 PostgreSQL Server 做基準測試的話，可以選擇內建的 `pgbench` 工具，這篇文章會簡單介紹並實際使用 `pgbench`，最後測試使用 Load Balancing 將附載分配到兩台 PostgreSQL Server，比較與單一 PostgreSQL Server 的差距。
+summary: 要針對 PostgreSQL Server 做基準測試的話，可以選擇內建的 `pgbench` 工具，大略筆記一下使用 `pgbench` 的方式、以及實際使用情境，測試使用 Load Balancing 將附載分配到兩台 PostgreSQL Server，比較與單一 PostgreSQL Server 的差距。
 ---
-要針對 PostgreSQL Server 做基準測試的話，可以選擇內建的 `pgbench` 工具，這篇文章會簡單介紹並實際使用 `pgbench`，最後測試使用 Load Balancing 將附載分配到兩台 PostgreSQL Server，比較與單一 PostgreSQL Server 的差距。
+要針對 PostgreSQL Server 做基準測試的話，可以選擇內建的 `pgbench` 工具，大略筆記一下使用 `pgbench` 的方式、以及實際使用情境，測試使用 Load Balancing 將附載分配到兩台 PostgreSQL Server，比較與單一 PostgreSQL Server 的差距。
 ___
 
 ### `pgbench` 簡介
@@ -21,7 +21,7 @@ pgbench [option...] [dbname]
 pgbench -h 10.0.1.100 -p 5678 -U developer postgres
 ```
 
-需要注意 `pgbench` 內建有測試腳本，要使用內建腳本需要先使用 `-i` 選項，針對要測試的資料庫進行初始化：
+`pgbench` 內建有測試腳本，要使用內建腳本需要先使用 `-i` 選項，針對要測試的資料庫進行初始化：
 
 ```shell
 pgbench -h 10.0.1.100 -U developer -i postgres
@@ -48,7 +48,7 @@ done in 36.58 s (drop tables 0.05 s, create tables 0.11 s, client-side generate 
 
 在初始化完成後就可以使用內建腳本進行基準測試：
 
-可以使用 `-b` *`scriptname[@weight]`* 這個選項來指定使用的內建測試腳本，有 `tpcb-like` 、 `simple-update` 和 `select-only` 三種，若沒有指定則會預設使用 `tpcb-like`。
+使用 `-b` *`scriptname[@weight]`* 這個選項可以指定使用的內建測試腳本，有 `tpcb-like` 、 `simple-update` 和 `select-only` 三種，若沒有指定則會預設使用 `tpcb-like`。
 
 `@weight` 指的是執行權重，預設是 1。
 
@@ -77,7 +77,7 @@ initial connection time = 101.683 ms
 tps = 717.207182 (without initial connection time)
 ```
 
-這邊用到的參數有：
+使用到的參數：
 
 * `-T` *`seconds`* 指定測試要執行多久的時間。
 * `-j` *`threads`* 指定執行基準測試所使用的執行續數量，預設為 1。
@@ -124,7 +124,7 @@ SQL script 2: custom-script.sql
 
 這邊使用了 `-b` 指定內建的 `select-only` 腳本，使用 `-f` 指定了 `custom-script.sql` 這個檔案作為腳本。並設定 `weight` 按照 1 比 3 的比例執行。
 
-自定義的腳本有一些語法、函式可以使用，詳細內容可以參考[文件](https://www.postgresql.org/docs/14/pgbench.html#custom-scripts:~:text=SELECT%20is%20issued.-,Custom%20Scripts,-pgbench%20has%20support)。
+自定義的腳本有一些語法、函式可以使用，詳細內容參考[文件](https://www.postgresql.org/docs/14/pgbench.html#custom-scripts:~:text=SELECT%20is%20issued.-,Custom%20Scripts,-pgbench%20has%20support)。
 ___
 
 ### 實際測試
@@ -179,11 +179,10 @@ tps = 28126.510289 (without initial connection time)
 可以看到，在同等條件下，將查詢分配到兩台 Server 上能夠獲得超過兩倍的 tps 提升。
 ___
 
-### 總結
+### 其他
 
-除了上述提到的之外，執行時還有很多不同的選項，例如指定 transaction 的執行速率，或是設定每個 client 執行多少次而不是限制執行時間，初始化的步驟也有不同選項可以指定。
+執行 `pgbench` 時還有很多不同的選項，例如指定 transaction 的執行速率，或是設定每個 client 執行多少次而不是限制執行時間，初始化的步驟也有不同選項可以指定。
 
-`pgbench` 會隨著 PostgreSQL 一起被安裝，可以很簡易的透過內建測試腳本做測試，也可以自行設計複雜的測試腳本，滿足不同情境，詳細說明可以參考下方的官方文件連結。
 ___
 
 ### 參考資料
