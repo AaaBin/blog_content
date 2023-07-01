@@ -1,7 +1,7 @@
 +++
-title = 'ASP.NET Core 認證與授權（進行中）'
+title = 'ASP.NET Core 認證與授權'
 date = '2023-07-01T17:20:00+08:00'
-draft = false
+draft = true
 summary = '每次遇到 ASP.NET Core 認證與授權都要要重新查一次，所以寫個筆記。'
 tags = ['ASP.NET Core', 'Authentication', 'Authorization']
 +++
