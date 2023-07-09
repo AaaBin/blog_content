@@ -382,8 +382,6 @@ Do you really want to destroy all resources?
 ```
 輸入 yes 後就可以刪除所有的資源了。
 
-## 總結
-
 
 ## 參考資料
 * [Terraform](https://developer.hashicorp.com/terraform/intro)
