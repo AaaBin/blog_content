@@ -16,7 +16,7 @@ Terraform 是其中一種 IaC 工具，透過被稱為 provider 的插件來使�
 另外，Terraform 會記錄並追蹤每個資源的狀態，用於判斷設定檔與實際狀態的差異，來決定什麼部分的資源需要建立或變更。
 
 Terraform 的使用流程可以參考以下這張官方文件內的圖片：
-![terraform_workflow](assets/terraform_workflow.webp)
+![terraform_workflow](terraform_workflow.webp)
 * Plan： 透過狀態的比對，將設定檔轉換成執行計畫，並且顯示出需要變更部分。
 * Apply： 將計畫執行所描述的變更實際套用到資源上。
 
