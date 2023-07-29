@@ -4,6 +4,7 @@ date = '2023-07-09T10:45:00+08:00'
 draft = false
 summary = 'Terraform 是個好工具，大家都來用吧！'
 tags = ['Terraform', 'Azure']
+disable_feed = false
 +++
 
 ## 簡介
