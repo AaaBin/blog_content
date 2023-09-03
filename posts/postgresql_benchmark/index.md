@@ -4,7 +4,7 @@ date = '2023-04-23T20:37:43+08:00'
 draft = false
 summary = '要針對 PostgreSQL Server 做基準測試的話，可以選擇內建的 `pgbench` 工具，大略筆記一下使用 `pgbench` 的方式、以及實際使用情境，測試使用 Load Balancing 將附載分配到兩台 PostgreSQL Server，比較與單一 PostgreSQL Server 的差距。'
 tags = ["PostgreSQL", "pgbench"]
-disable_feed = false
+isCJKLanguage = true
 +++
 要針對 PostgreSQL Server 做基準測試的話，可以選擇內建的 `pgbench` 工具，大略筆記一下使用 `pgbench` 的方式、以及實際使用情境，測試使用 Load Balancing 將附載分配到兩台 PostgreSQL Server，比較與單一 PostgreSQL Server 的差距。
 ___
