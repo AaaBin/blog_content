@@ -4,7 +4,7 @@ date = '2023-04-23T20:37:20+08:00'
 draft = false
 summary = 'Azure Static Web App 是一個可以快速建立靜態網站的服務，但是它也可以用來建立後端 API。'
 tags = ['Azure', 'Static Web Apps', 'Azure Function']
-disable_feed = false
+isCJKLanguage = true
 +++
 > Azure Static Web Apps 是一個提供建置和部屬網頁應用程式的服務，可以方便的與 Github Action 整合，以及使用 Azure Functions 作為後端 API。這邊記錄一下如何使用 Azure Function 作為後端 API 讓前端靜態網頁呼叫。
 ### 簡易說明

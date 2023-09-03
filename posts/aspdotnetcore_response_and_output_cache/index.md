@@ -1,5 +1,5 @@
 +++
-title = '[筆記]ASP.NET Core 中的 Response Cache 和 Output Cache'
+title = '［筆記］ASP.NET Core 中的 Response Cache 和 Output Cache'
 date = '2023-08-27T16:26:00+08:00'
 draft = false
 summary = '關於 ASP .NET Core response cache 以及 output cache 的筆記'
