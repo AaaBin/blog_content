@@ -12,13 +12,6 @@ isCJKLanguage = true
 > 更新： Spring 的 `WebClient` 似乎比較像是一個 wrapper，其實需要 [HTTP Client Library](https://docs.spring.io/spring-framework/reference/web/webflux-webclient/client-builder.html#webflux-client-builder-jdk-httpclient)才能使用，這部分之前沒有注意到。
 
 
-[一、Java 原生 API](#一java-原生-api)  
-[二、Spring 提供](#二spring-提供)  
-[三、非同步請求](#三非同步請求)  
-[四、比較及結語](#四比較及結語)  
-[五、參考資料](#五參考資料)
-
-
 ## 一、Java 原生 API
 
 1. `HttpURLConnection`/`HttpsURLConnection`（package: `java.net`）
