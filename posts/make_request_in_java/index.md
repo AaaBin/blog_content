@@ -16,6 +16,7 @@ isCJKLanguage = true
 [二、Spring 提供](#二spring-提供)  
 [三、非同步請求](#三非同步請求)  
 [四、比較及結語](#四比較及結語)  
+[五、參考資料](#五參考資料)
 
 
 ## 一、Java 原生 API
@@ -299,3 +300,27 @@ flux.map(Post::getTitle)
     
 
 總結來說，若使用 Java 11 以上，`HttpClient` 會是容易上手且功能豐富的請求發送方式。
+
+
+## 五、參考資料
+- [5 ways to make HTTP requests in Java](https://www.twilio.com/blog/5-ways-to-make-http-requests-in-java)
+    
+- [Do a Simple HTTP Request in Java | Baeldung](https://www.baeldung.com/java-http-request)
+    
+- [Making a JSON POST Request With HttpURLConnection | Baeldung](https://www.baeldung.com/httpurlconnection-post)
+    
+- [Does Java HTTP Client handle compression](https://stackoverflow.com/questions/53502626/does-java-http-client-handle-compression)
+    
+- [A Guide to the RestTemplate | Baeldung](https://www.baeldung.com/rest-template)
+    
+- [Spring WebClient vs. RestTemplate | Baeldung](https://www.baeldung.com/spring-webclient-resttemplate)
+    
+- [Spring 5 WebClient | Baeldung](https://www.baeldung.com/spring-5-webclient)
+    
+- [RestTemplate vs Apache Http Client for production code in spring project](https://stackoverflow.com/questions/31483874/resttemplate-vs-apache-http-client-for-production-code-in-spring-project)
+    
+- [RestTemplate vs. WebClient - DZone Java](https://dzone.com/articles/resttemplate-vs-webclient)
+    
+- [spring 5 webclient使用指南](https://juejin.cn/post/6844903552905641991#heading-8)
+    
+- [Which Java HTTP client should I use in 2020?](https://www.mocklab.io/blog/which-java-http-client-should-i-use-in-2020/)
