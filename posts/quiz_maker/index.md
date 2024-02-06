@@ -1,6 +1,13 @@
-# 陽春題目產生器 QuizMaker 紀錄
++++
+title = '陽春題目產生器 QuizMaker 紀錄'
+date = '2024-02-06T23:11:00+08:00'
+draft = false
+summary = '久違的 .NET 小專案紀錄'
+tags = ['.NET', 'Cloud Run']
+isCJKLanguage = true
++++
 
-## 說明
+## 陽春題目產生器 QuizMaker 紀錄
 
 一直有讀英文的需求（？），前陣子看到[這個影片](https://youtu.be/MwgWnuSlybY)，其中提到一點是關於用測驗來增加記憶以及理解是有幫助的，想了想發現很久沒有寫到英文題目了，決定試著用ＡＩ幫助產生題目給我練習。做完後把過程中的新嘗試和困難記錄下來。
 
