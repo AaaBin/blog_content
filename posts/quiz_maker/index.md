@@ -32,6 +32,7 @@ dotnet publish --os linux --arch x64 /t:PublishContainer -c Release
 用一個簡單的指令就可以打包並發布 image，預設是發布到 local 的 registry，要 push 到 docker hub 可以在 csproj 設定
 
 ```xml
+<EnableSdkContainerSupport>true</EnableSdkContainerSupport>
 <ContainerRegistry>docker.io</ContainerRegistry>
 <ContainerRepository>username/repository</ContainerRepository>
 <ContainerImageTags>v0.1;latest</ContainerImageTags>
