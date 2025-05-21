@@ -5,7 +5,7 @@ disableComments: true
 disable_feed: true
 isCJKLanguage: true
 ---
-![image](cute_blur_mao.jpeg)  
+![image](gray_scale_pigeon.JPG)  
 後端開發者。  
 
-也是麵包愛好者。最近吃到好吃的酸種麵包。
+同時是回去學校讀書的學生，最近在煩惱工作的發展方向。
