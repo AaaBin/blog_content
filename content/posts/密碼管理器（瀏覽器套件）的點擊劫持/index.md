@@ -1,6 +1,6 @@
 ---
 title: 密碼管理器（瀏覽器套件）的點擊劫持
-draft: true
+draft: false
 date: 2025-09-07T18:09:00.000+08:00
 summary: 前陣子看到的密碼管理器漏洞問題，身為 1Password 愛用者所以滿緊張的，想了解發生什麼事情。
 tags:
